@@ -1,6 +1,6 @@
 ﻿using Infrastructure.Services;
 
-namespace UnitTests;
+namespace UnitTests.Tests;
 
 public class TemplateServiceTests
 {
@@ -17,7 +17,7 @@ public class TemplateServiceTests
     {
         var result = TemplateService.GetAllPlaceholders(template).ToArray();
 
-        Assert.Equal(expected, result);
+        result.Should().BeEquivalentTo(expected);
     }
 
     [Theory]
@@ -25,8 +25,8 @@ public class TemplateServiceTests
     public void GetAllPlaceholdersWithBrackets(string template, string[] expected)
     {
         var result = TemplateService.GetAllPlaceholdersWithBrackets(template).ToArray();
-
-        Assert.Equal(expected.Select(x => $"{{{{{x}}}}}"), result);
+        
+        result.Should().BeEquivalentTo(expected.Select(x => $"{{{{{x}}}}}"));
     }
 
     public static IEnumerable<object[]> GetAllPlaceholdersData
@@ -76,7 +76,7 @@ public class TemplateServiceTests
     {
         var result = TemplateService.BuildTemplateFromJson(template, json);
 
-        Assert.Equal(expected, result);
+        result.Should().BeEquivalentTo(expected);
     }
 
     public static IEnumerable<object[]> BuildTemplateFromJsonData
@@ -130,7 +130,7 @@ public class TemplateServiceTests
             },
             new object[]
             {
-                "Weather from the source Visualcrossing for location {{resolvedAddress}}. Temperature is {{days.[0].temp}} C (feels like {{days.[0].feelslike}} C). {{days.[0].description}} Wind speed {{days.[0].windspeed}}.", 
+                "Weather from the source Visualcrossing for location {{resolvedAddress}}. Temperature is {{days.[0].temp}} C (feels like {{days.[0].feelslike}} C). {{days.[0].description}} Wind speed {{days.[0].windspeed}}.",
                 @"{
                     ""queryCost"": 1,
                     ""latitude"": 38.7264,

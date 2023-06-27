@@ -39,7 +39,8 @@ try
         .ReadFrom.Configuration(context.Configuration)
         .ReadFrom.Services(services)
         .Enrich.FromLogContext()
-        .WriteTo.Console());
+        .WriteTo.Console(),
+        preserveStaticLogger: true);
 
     builder.Services.AddApplication();
     builder.Services.AddInfrastructure(builder.Configuration);
@@ -70,3 +71,5 @@ finally
 {
     Log.CloseAndFlush();
 }
+
+public partial class Program { }

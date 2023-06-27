@@ -60,7 +60,7 @@ public class GetWeatherFastestHandler : IRequestResultHandler<GetWeatherFastestQ
 
         return new WeatherResponse(
             providerResponse.provider.Name,
-            _jsonParserService.GetValueByPath<int>(json, providerResponse.provider.TemperaturePath),
+            _jsonParserService.GetValueByPath<float>(json, providerResponse.provider.TemperaturePath),
             _templateService.BuildTemplateFromJson(providerResponse.provider.ForecastTemplatePath, json),
             _dateTimeService.UtcNow);
     }

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -11,7 +11,13 @@
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="6.11.0" />
+    <PackageReference Include="FluentMigrator.Runner" Version="3.3.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="7.0.8" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
+    <PackageReference Include="Respawn" Version="6.0.0" />
+    <PackageReference Include="RichardSzalay.MockHttp" Version="6.0.0" />
+    <PackageReference Include="Testcontainers" Version="3.3.0" />
+    <PackageReference Include="Testcontainers.PostgreSql" Version="3.3.0" />
     <PackageReference Include="xunit" Version="2.5.0-pre.26" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.0-pre.22">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -24,11 +30,11 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+    <ProjectReference Include="..\..\src\WebApi\WebApi.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\WebApi\WebApi.csproj" />
+    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

@@ -22,4 +22,9 @@ public class ApiControllerBase : ControllerBase
             ErrorCodes.Unhandled => StatusCode(StatusCodes.Status500InternalServerError, error.ToDto()),
             _ => Problem()
         };
+
+    protected CreatedAtActionResult CreatedAtAction(string? actionName, RouteValueDictionary routeValues)
+    {
+        return base.CreatedAtAction(actionName, routeValues, null);
+    }
 }

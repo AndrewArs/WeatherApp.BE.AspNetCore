@@ -1,6 +1,6 @@
 ﻿using Infrastructure.Services;
 
-namespace UnitTests;
+namespace UnitTests.Tests;
 
 public class UrlServiceTests
 {
@@ -46,7 +46,7 @@ public class UrlServiceTests
         };
         var result = urlService.MaskUrlQueryParams(url, queryParam);
 
-        Assert.Equal(expected, result);
+        result.Should().BeEquivalentTo(expected);
     }
 
     public static IEnumerable<object[]> MaskUrlQueryParams_ManyParamsData()
@@ -80,6 +80,6 @@ public class UrlServiceTests
         };
         var result = urlService.MaskUrlQueryParams(url, queryParams);
 
-        Assert.Equal(expected, result);
+        result.Should().BeEquivalentTo(expected);
     }
 }

@@ -4,7 +4,7 @@ using MediatR;
 namespace Application.Common.Behaviors;
 
 public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, Result<TResponse>> 
-    where TRequest : IValidatableRequest
+    where TRequest : IValidatableRequest, IRequestResult<TResponse>
 {
     private readonly IValidator<TRequest> _validator;
 

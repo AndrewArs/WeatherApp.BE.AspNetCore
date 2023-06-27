@@ -1,6 +1,6 @@
 ﻿using Infrastructure.Services;
 
-namespace UnitTests;
+namespace UnitTests.Tests;
 
 public class JsonParserServiceTests
 {
@@ -46,7 +46,7 @@ public class JsonParserServiceTests
     {
         var result = JsonParserService.IsValidPath(path);
 
-        Assert.Equal(expected, result);
+        result.Should().Be(expected);
     }
 
     [Theory]

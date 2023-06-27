@@ -52,7 +52,7 @@ public class GetWeatherHandler : IRequestResultHandler<GetWeatherQuery, WeatherR
         
         return new WeatherResponse(
             provider.Name,
-            _jsonParserService.GetValueByPath<int>(json, provider.TemperaturePath),
+            _jsonParserService.GetValueByPath<float>(json, provider.TemperaturePath),
             _templateService.BuildTemplateFromJson(provider.ForecastTemplatePath, json),
             _dateTimeService.UtcNow);
     }

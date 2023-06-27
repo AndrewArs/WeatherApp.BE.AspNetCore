@@ -22,21 +22,21 @@ public class WeatherProvidersController : ApiControllerBase
             HandleError);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id-name}")]
     [ProducesErrorResponseType(typeof(ErrorDto))]
     [ProducesResponseType(typeof(WeatherProviderDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
-    public async Task<IActionResult> GetOne([FromRoute] string id)
+    public async Task<IActionResult> GetOne([FromRoute(Name = "id-name")] string idOrName)
     {
         var request = new GetForecastProviderQuery();
-        if (Guid.TryParse(id, out var guid))
+        if (Guid.TryParse(idOrName, out var guid))
         {
             request.Id = guid;
         }
         else
         {
-            request.Name = id;
+            request.Name = idOrName;
         }
         var result = await Mediator.Send(request);
 
@@ -55,7 +55,7 @@ public class WeatherProvidersController : ApiControllerBase
         var result = await Mediator.Send(dto.ToDomain());
 
         return result.Match(
-            success => CreatedAtAction(nameof(GetOne), new { id = success.Id.ToString("N") }, null),
+            success => CreatedAtAction(nameof(GetOne), new RouteValueDictionary { { "id-name", success.Id.ToString("N") } }),
             HandleError);
     }
 
