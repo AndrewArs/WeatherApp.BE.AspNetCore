@@ -2,7 +2,7 @@
 
 public static class Result
 {
-    public static Result<EmptyResult> Empty() => new(new EmptyResult());
+    public static Result<Empty> Empty() => new(new Empty());
 
     public static Result<T?> Success<T>(T value) => new(value);
 

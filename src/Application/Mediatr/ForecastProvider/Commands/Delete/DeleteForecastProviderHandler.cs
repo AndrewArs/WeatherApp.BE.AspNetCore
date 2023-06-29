@@ -12,7 +12,7 @@ public class DeleteForecastProviderHandler : IRequestResultHandler<DeleteForecas
         _databaseContext = databaseContext;
     }
 
-    public async Task<Result<EmptyResult>> Handle(DeleteForecastProviderCommand request, CancellationToken cancellationToken)
+    public async Task<Result<Empty>> Handle(DeleteForecastProviderCommand request, CancellationToken cancellationToken)
     {
         var affectedRows = await _databaseContext.ForecastProviderSettings
             .Where(x => x.Id == request.Id)

@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+
+  web:
+    container_name: weatherapp-aspnetcore
+    image: weatherapp-aspnetcore
+    build:
+        context: ..
+        dockerfile: Dockerfile
+    ports:
+        - "5000:80"
+    depends_on:
+        - postgres
+    networks:
+        - weatherapp-network
+    environment:
+        ConnectionStrings__Postgres: "User ID=postgres;Password=mysecretpassword;Host=weatherapp-postgres;Port=5432;Database=weather-app;"
+        Serilog__MinimumLevel__Default: "Information"
+        ASPNETCORE_ENVIRONMENT: "Development"
+        ASPNETCORE_URLS: "http://+:80"
+
+  postgres:
+    container_name: weatherapp-postgres
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_USER: postgres
+      POSTGRES_DB: weather-app
+    ports:
+      - "5432:5432"
+    networks:
+      - weatherapp-network
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+networks:
+  weatherapp-network:
+    driver: bridge
+
+volumes:
+  pgdata:
+  

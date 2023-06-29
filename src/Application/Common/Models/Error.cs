@@ -1,6 +1,6 @@
 ﻿namespace Application.Common.Models;
 
-public readonly struct Error
+public readonly struct Error : IResult
 {
     public ErrorCodes Code { get; }
 

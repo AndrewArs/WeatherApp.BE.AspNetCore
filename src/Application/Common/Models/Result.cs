@@ -1,6 +1,6 @@
 ﻿namespace Application.Common.Models;
 
-public readonly struct Result<T>
+public readonly struct Result<T> : IResult
 {
     public T Value { get; }
 
