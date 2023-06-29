@@ -1,8 +1,8 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Mediatr.Weather.Queries.One;
-public class GetWeatherHandler : IRequestResultHandler<GetWeatherQuery, WeatherResponse>
+namespace Application.Mediatr.WeatherForecast.Queries.One;
+public class GetWeatherForecastHandler : IRequestResultHandler<GetWeatherForecastQuery, WeatherForecastResponse>
 {
     private readonly IHttpClientFactory _clientFactory;
     private readonly IDatabaseContext _databaseContext;
@@ -10,7 +10,7 @@ public class GetWeatherHandler : IRequestResultHandler<GetWeatherQuery, WeatherR
     private readonly IJsonParserService _jsonParserService;
     private readonly IDateTimeService _dateTimeService;
 
-    public GetWeatherHandler(
+    public GetWeatherForecastHandler(
         IHttpClientFactory clientFactory,
         IDatabaseContext databaseContext,
         ITemplateService templateService,
@@ -24,7 +24,7 @@ public class GetWeatherHandler : IRequestResultHandler<GetWeatherQuery, WeatherR
         _dateTimeService = dateTimeService;
     }
 
-    public async Task<Result<WeatherResponse>> Handle(GetWeatherQuery request, CancellationToken cancellationToken)
+    public async Task<Result<WeatherForecastResponse>> Handle(GetWeatherForecastQuery request, CancellationToken cancellationToken)
     {
         var query = _databaseContext.ForecastProviderSettings.AsNoTracking();
 
@@ -50,7 +50,7 @@ public class GetWeatherHandler : IRequestResultHandler<GetWeatherQuery, WeatherR
 
         var json = await providerResponse.Content.ReadAsStringAsync(cancellationToken);
         
-        return new WeatherResponse(
+        return new WeatherForecastResponse(
             provider.Name,
             _jsonParserService.GetValueByPath<float>(json, provider.TemperaturePath),
             _templateService.BuildTemplateFromJson(provider.ForecastTemplatePath, json),

@@ -1,6 +1,6 @@
 ﻿namespace WebApi.Dtos;
 
-public record WeatherProviderDto(
+public record ForecastProviderDto(
     Guid Id,
     DateTimeOffset CreatedAt,
     DateTimeOffset UpdatedAt,

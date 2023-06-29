@@ -25,7 +25,7 @@ public class WeatherProvidersTests : BaseIntegrationTest
 
         response.Headers.Location!.ToString().Should().StartWith($"{ApiBaseAddress}api/weather-providers");
 
-        var responseDto = await ApiClient.GetFromJsonAsync<WeatherProviderDto>(response.Headers.Location);
+        var responseDto = await ApiClient.GetFromJsonAsync<ForecastProviderDto>(response.Headers.Location);
 
         responseDto.Should().NotBeNull();
         responseDto!.Url.Should().BeEquivalentTo(data.ExpectedUrl);
@@ -36,7 +36,7 @@ public class WeatherProvidersTests : BaseIntegrationTest
         responseDto.CreatedAt.Should().BeCloseTo(DateTimeOffset.UtcNow, TimeSpan.FromSeconds(1));
         responseDto.UpdatedAt.Should().BeCloseTo(DateTimeOffset.UtcNow, TimeSpan.FromSeconds(1));
 
-        var allDto = await ApiClient.GetFromJsonAsync<ListOfDto<WeatherProviderDto>>("api/weather-providers");
+        var allDto = await ApiClient.GetFromJsonAsync<ListOfDto<ForecastProviderDto>>("api/weather-providers");
 
         allDto.Should().NotBeNull();
         allDto!.Data.Should().Contain(responseDto);
@@ -62,9 +62,9 @@ public class WeatherProvidersTests : BaseIntegrationTest
         var dto = new CreateForecastProviderDto(data.Name, data.Url, data.TemperaturePath, data.Template, data.KeyParamName);
         var response = await ApiClient.PostAsJsonAsync("api/weather-providers", dto);
 
-        var responseByIdDto = await ApiClient.GetFromJsonAsync<WeatherProviderDto>(response.Headers.Location);
+        var responseByIdDto = await ApiClient.GetFromJsonAsync<ForecastProviderDto>(response.Headers.Location);
 
-        var responseByNameDto = await ApiClient.GetFromJsonAsync<WeatherProviderDto>($"api/weather-providers/{responseByIdDto!.Name}");
+        var responseByNameDto = await ApiClient.GetFromJsonAsync<ForecastProviderDto>($"api/weather-providers/{responseByIdDto!.Name}");
 
         responseByNameDto.Should().BeEquivalentTo(responseByIdDto);
     }
@@ -77,7 +77,7 @@ public class WeatherProvidersTests : BaseIntegrationTest
         var response = await ApiClient.PostAsJsonAsync("api/weather-providers", dto);
         var resourceLocation = response.Headers.Location;
 
-        var responseDto = await ApiClient.GetFromJsonAsync<WeatherProviderDto>(resourceLocation);
+        var responseDto = await ApiClient.GetFromJsonAsync<ForecastProviderDto>(resourceLocation);
 
         response = await ApiClient.DeleteAsync($"api/weather-providers/{responseDto!.Id}");
 
@@ -96,7 +96,7 @@ public class WeatherProvidersTests : BaseIntegrationTest
         var dto = new CreateForecastProviderDto(data.Name, data.Url, data.TemperaturePath, data.Template, data.KeyParamName);
         
         var response = await ApiClient.PostAsJsonAsync("api/weather-providers", dto);
-        var responseDto = await ApiClient.GetFromJsonAsync<WeatherProviderDto>(response.Headers.Location);
+        var responseDto = await ApiClient.GetFromJsonAsync<ForecastProviderDto>(response.Headers.Location);
         
         var updateDto = new UpdateForecastProviderDto(
             data.Name + "v2",
@@ -109,7 +109,7 @@ public class WeatherProvidersTests : BaseIntegrationTest
         response.Should().BeSuccessful()
             .And.HaveStatusCode(HttpStatusCode.OK);
         
-        var updatedByIdDto = await response.Content.ReadFromJsonAsync<WeatherProviderDto>();
+        var updatedByIdDto = await response.Content.ReadFromJsonAsync<ForecastProviderDto>();
 
         updatedByIdDto.Should().NotBeNull();
         updatedByIdDto!.Url.Should().BeEquivalentTo(updateDto.Url);

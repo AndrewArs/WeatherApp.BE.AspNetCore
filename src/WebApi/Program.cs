@@ -72,4 +72,7 @@ finally
     Log.CloseAndFlush();
 }
 
-public partial class Program { }
+namespace WebApi
+{
+    public partial class Program { }
+}

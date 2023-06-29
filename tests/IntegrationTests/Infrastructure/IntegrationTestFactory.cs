@@ -11,6 +11,7 @@ using Npgsql;
 using Respawn;
 using Respawn.Graph;
 using Testcontainers.PostgreSql;
+using WebApi;
 
 namespace IntegrationTests.Infrastructure;
 

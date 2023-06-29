@@ -10,7 +10,7 @@ public class WeatherProvidersController : ApiControllerBase
 {
     [HttpGet]
     [ProducesErrorResponseType(typeof(ErrorDto))]
-    [ProducesResponseType(typeof(ListOfDto<WeatherProviderDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ListOfDto<ForecastProviderDto>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
     public async Task<IActionResult> GetAll()
@@ -24,7 +24,7 @@ public class WeatherProvidersController : ApiControllerBase
 
     [HttpGet("{id-name}")]
     [ProducesErrorResponseType(typeof(ErrorDto))]
-    [ProducesResponseType(typeof(WeatherProviderDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ForecastProviderDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
     public async Task<IActionResult> GetOne([FromRoute(Name = "id-name")] string idOrName)
@@ -72,7 +72,7 @@ public class WeatherProvidersController : ApiControllerBase
 
     [HttpPut("{id:guid}")]
     [ProducesErrorResponseType(typeof(ErrorDto))]
-    [ProducesResponseType(typeof(WeatherProviderDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ForecastProviderDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]

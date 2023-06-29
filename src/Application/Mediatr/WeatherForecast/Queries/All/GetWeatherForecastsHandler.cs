@@ -1,9 +1,9 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Mediatr.Weather.Queries.All;
+namespace Application.Mediatr.WeatherForecast.Queries.All;
 
-public class GetWeatherAllHandler : IRequestResultHandler<GetWeatherAllQuery, ListOf<WeatherResponse>>
+public class GetWeatherForecastsHandler : IRequestResultHandler<GetWeatherForecastsQuery, WeatherForecastsResponse>
 {
     private readonly IHttpClientFactory _clientFactory;
     private readonly IDatabaseContext _databaseContext;
@@ -11,7 +11,7 @@ public class GetWeatherAllHandler : IRequestResultHandler<GetWeatherAllQuery, Li
     private readonly IJsonParserService _jsonParserService;
     private readonly IDateTimeService _dateTimeService;
 
-    public GetWeatherAllHandler(
+    public GetWeatherForecastsHandler(
         IHttpClientFactory clientFactory,
         IDatabaseContext databaseContext,
         ITemplateService templateService,
@@ -25,7 +25,7 @@ public class GetWeatherAllHandler : IRequestResultHandler<GetWeatherAllQuery, Li
         _dateTimeService = dateTimeService;
     }
 
-    public async Task<Result<ListOf<WeatherResponse>>> Handle(GetWeatherAllQuery request, CancellationToken cancellationToken)
+    public async Task<Result<WeatherForecastsResponse>> Handle(GetWeatherForecastsQuery request, CancellationToken cancellationToken)
     {
         var providers = await _databaseContext.ForecastProviderSettings
             .AsNoTracking()
@@ -53,15 +53,22 @@ public class GetWeatherAllHandler : IRequestResultHandler<GetWeatherAllQuery, Li
 
         if (!tuple.Any()) return Error.Unhandled($"All {providers.Count} providers failed to request forecast");
 
-        var weathersTasks = tuple.Select(x => x.message.Content.ReadAsStringAsync(cancellationToken).ContinueWith(task =>
-            new WeatherResponse(
+        var weathersTasks = tuple
+            .Where(x => x.message.IsSuccessStatusCode)
+            .Select(x => x.message.Content.ReadAsStringAsync(cancellationToken).ContinueWith(task =>
+            new WeatherForecastResponse(
                 x.provider.Name,
                 _jsonParserService.GetValueByPath<float>(task.Result, x.provider.TemperaturePath),
                 _templateService.BuildTemplateFromJson(x.provider.ForecastTemplatePath, task.Result),
                 _dateTimeService.UtcNow), cancellationToken));
-
         var weathers = await Task.WhenAll(weathersTasks);
 
-        return new ListOf<WeatherResponse>(weathers);
+        var errorsTasks = tuple
+            .Where(x => !x.message.IsSuccessStatusCode)
+            .Select(x => x.message.Content.ReadAsStringAsync(cancellationToken)
+                .ContinueWith(task => new WeatherForecastsResponse.FailResponse(x.provider.Name, task.Result), cancellationToken));
+        var errors = await Task.WhenAll(errorsTasks);
+
+        return new WeatherForecastsResponse(weathers, errors);
     }
 }
