@@ -1,5 +1,4 @@
 ﻿using System.Net.Mime;
-using Application.Common.Interfaces;
 using FluentMigrator.Runner;
 using IntegrationTests.Data;
 using Microsoft.EntityFrameworkCore;

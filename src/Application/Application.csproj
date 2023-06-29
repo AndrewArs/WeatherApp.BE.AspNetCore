@@ -25,7 +25,6 @@
     <Folder Include="Mediatr\ForecastProvider\Commands\Update\" />
     <Folder Include="Mediatr\ForecastProvider\Queries\All\" />
     <Folder Include="Mediatr\ForecastProvider\Queries\One\" />
-    <Folder Include="Mediatr\Weather\Queries\All\" />
   </ItemGroup>
 
 </Project>

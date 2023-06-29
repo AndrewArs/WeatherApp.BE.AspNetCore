@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 
-namespace Application.Mediatr.Weather.Queries.One;
+namespace Application.Mediatr.WeatherForecast.Queries.One;
 
-public class GetWeatherQueryValidator : AbstractValidator<GetWeatherQuery>
+public class GetWeatherForecastQueryValidator : AbstractValidator<GetWeatherForecastQuery>
 {
-    public GetWeatherQueryValidator()
+    public GetWeatherForecastQueryValidator()
     {
         RuleFor(x => x)
             .Custom((query, context) =>

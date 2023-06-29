@@ -18,10 +18,10 @@ public class WeatherForecastsTests : BaseIntegrationTest
     {
         var dto = new CreateForecastProviderDto(data.Name, data.Url, data.TemperaturePath, data.Template, data.KeyParamName);
         var response = await ApiClient.PostAsJsonAsync("api/weather-providers", dto);
-        var responseDto = await ApiClient.GetFromJsonAsync<WeatherProviderDto>(response.Headers.Location);
+        var responseDto = await ApiClient.GetFromJsonAsync<ForecastProviderDto>(response.Headers.Location);
 
-        var dtoById = await ApiClient.GetFromJsonAsync<WeatherDto>($"/api/weather-providers/{responseDto!.Id}/forecasts");
-        var dtoByName = await ApiClient.GetFromJsonAsync<WeatherDto>($"/api/weather-providers/{responseDto.Name}/forecasts");
+        var dtoById = await ApiClient.GetFromJsonAsync<WeatherForecastDto>($"/api/weather-providers/{responseDto!.Id}/forecasts");
+        var dtoByName = await ApiClient.GetFromJsonAsync<WeatherForecastDto>($"/api/weather-providers/{responseDto.Name}/forecasts");
 
         dtoById.Should().NotBeNull()
             .And.BeEquivalentTo(dtoByName, options => options.Excluding(x => x!.UpdatedAt));
@@ -39,7 +39,7 @@ public class WeatherForecastsTests : BaseIntegrationTest
         var dto = new CreateForecastProviderDto(data.Name, data.Url, data.TemperaturePath, data.Template, data.KeyParamName);
         await ApiClient.PostAsJsonAsync("api/weather-providers", dto);
 
-        var responseDto = await ApiClient.GetFromJsonAsync<WeatherDto>("/api/weather-providers/forecasts/fastest");
+        var responseDto = await ApiClient.GetFromJsonAsync<WeatherForecastDto>("/api/weather-providers/forecasts/fastest");
 
         responseDto.Should().NotBeNull();
         responseDto!.Provider.Should().BeEquivalentTo(data.Name);
@@ -55,7 +55,7 @@ public class WeatherForecastsTests : BaseIntegrationTest
         var dto = new CreateForecastProviderDto(data.Name, data.Url, data.TemperaturePath, data.Template, data.KeyParamName);
         await ApiClient.PostAsJsonAsync("api/weather-providers", dto);
 
-        var responseDto = await ApiClient.GetFromJsonAsync<ListOfDto<WeatherDto>>("/api/weather-providers/forecasts");
+        var responseDto = await ApiClient.GetFromJsonAsync<ListOfDto<WeatherForecastDto>>("/api/weather-providers/forecasts");
 
         responseDto.Should().NotBeNull();
         responseDto!.Data.Should().Contain(x => x.Provider.Equals(data.Name) 

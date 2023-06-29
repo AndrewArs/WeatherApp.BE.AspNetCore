@@ -6,10 +6,10 @@ namespace WebApi.Mappings;
 
 public static class WeatherProviderMappings
 {
-    public static ListOfDto<WeatherProviderDto> ToDto(this ListOf<ForecastProviderResponse> domain)
+    public static ListOfDto<ForecastProviderDto> ToDto(this ListOf<ForecastProviderResponse> domain)
         => new(domain.Data.Select(x => x.ToDto()).ToList());
 
-    public static WeatherProviderDto ToDto(this ForecastProviderResponse domain)
+    public static ForecastProviderDto ToDto(this ForecastProviderResponse domain)
         => new(domain.Id, domain.CreatedAt, domain.UpdatedAt, domain.Name, domain.Url, domain.TemperaturePath, domain.ForecastTemplatePath, domain.KeyQueryParamName);
 
     public static AddForecastProviderCommand ToDomain(this CreateForecastProviderDto dto)

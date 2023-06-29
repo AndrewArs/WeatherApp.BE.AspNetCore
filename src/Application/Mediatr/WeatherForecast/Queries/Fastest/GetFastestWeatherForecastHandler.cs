@@ -1,9 +1,9 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Mediatr.Weather.Queries.Fastest;
+namespace Application.Mediatr.WeatherForecast.Queries.Fastest;
 
-public class GetWeatherFastestHandler : IRequestResultHandler<GetWeatherFastestQuery, WeatherResponse>
+public class GetFastestWeatherForecastHandler : IRequestResultHandler<GetFastestWeatherForecastQuery, WeatherForecastResponse>
 {
     private readonly IHttpClientFactory _clientFactory;
     private readonly IDatabaseContext _databaseContext;
@@ -11,7 +11,7 @@ public class GetWeatherFastestHandler : IRequestResultHandler<GetWeatherFastestQ
     private readonly IJsonParserService _jsonParserService;
     private readonly IDateTimeService _dateTimeService;
 
-    public GetWeatherFastestHandler(
+    public GetFastestWeatherForecastHandler(
         IHttpClientFactory clientFactory,
         IDatabaseContext databaseContext,
         ITemplateService templateService,
@@ -25,7 +25,7 @@ public class GetWeatherFastestHandler : IRequestResultHandler<GetWeatherFastestQ
         _dateTimeService = dateTimeService;
     }
 
-    public async Task<Result<WeatherResponse>> Handle(GetWeatherFastestQuery request, CancellationToken cancellationToken)
+    public async Task<Result<WeatherForecastResponse>> Handle(GetFastestWeatherForecastQuery request, CancellationToken cancellationToken)
     {
         var providers = await _databaseContext.ForecastProviderSettings
             .AsNoTracking()
@@ -58,7 +58,7 @@ public class GetWeatherFastestHandler : IRequestResultHandler<GetWeatherFastestQ
 
         var json = await providerResponse.httpResponse.Content.ReadAsStringAsync(cancellationToken);
 
-        return new WeatherResponse(
+        return new WeatherForecastResponse(
             providerResponse.provider.Name,
             _jsonParserService.GetValueByPath<float>(json, providerResponse.provider.TemperaturePath),
             _templateService.BuildTemplateFromJson(providerResponse.provider.ForecastTemplatePath, json),
