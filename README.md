@@ -33,16 +33,19 @@ For templating, use the symbols '{{}}' and for the JSON selector, use the syntax
 
 Example of **forecast template**:
 Forecast for {{location.name}} {{location.country}}. Temperature expected for today is {{data.[0].current.temperature}} C. Conditions {{data.[0].current.weather_descriptions.[0].text}}, {{data.[0].current.weather_descriptions.[1].text}}.
+
 ----------
 
 ## About technologies used
 Application written using *Clean Architecture*, *Railway Oriented Programming*, *AspNetCore WebApi*, *CQRS*, *Unit Testing*, *Integration Testing*. Contains examples of usage NuGet packages such as [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet), [fluentmigrator](https://github.com/fluentmigrator/fluentmigrator), [FluentValidation](https://github.com/FluentValidation/FluentValidation), [Humanizer](https://github.com/Humanizr/Humanizer), [MediatR](https://github.com/jbogard/MediatR), [serilog](https://github.com/serilog/serilog), [xunit](https://github.com/xunit/xunit), [fluentassertions](https://github.com/fluentassertions/fluentassertions), [Respawn](https://github.com/jbogard/Respawn), [Testcontainers](https://github.com/testcontainers/testcontainers-dotnet), [efcore](https://github.com/dotnet/efcore)
+
 ----------
 
 ## Dependencies
 - Docker 
 - Dotnet 7.0
 - dotnet-fm CLI tool for migrations (`dotnet tool install -g FluentMigrator.DotNet.Cli`)
+  
 ----------
 
 ## To start the project
@@ -55,6 +58,7 @@ Application written using *Clean Architecture*, *Railway Oriented Programming*, 
     dotnet-fm migrate -p Postgres -c "User ID=postgres Password=mysecretpassword;Host=localhost;Port=5432;Database=weather-app;" -a ".\..\src\WebApi\bin\Debug\net7.0\Infrastructure.dll" --allowDirtyAssemblies
     ```
 5. Browse http://localhost:5000/swagger
+   
 ----------
 
 ## Project structure
