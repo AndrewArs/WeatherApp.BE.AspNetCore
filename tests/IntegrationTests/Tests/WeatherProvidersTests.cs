@@ -44,6 +44,19 @@ public class WeatherProvidersTests : BaseIntegrationTest
 
     [Theory]
     [ClassData(typeof(HttpClientsData))]
+    public async Task AddProvider_Fail(HttpClientsData.Data data)
+    {
+        var incorrectUrl = data.Url
+            .Replace("http://", string.Empty)
+            .Replace("https://", string.Empty);
+        var dto = new CreateForecastProviderDto(data.Name, incorrectUrl, data.TemperaturePath, data.Template, data.KeyParamName);
+        var response = await ApiClient.PostAsJsonAsync("api/weather-providers", dto);
+
+        response.Should().HaveClientError();
+    }
+
+    [Theory]
+    [ClassData(typeof(HttpClientsData))]
     public async Task GetProvider_Success(HttpClientsData.Data data)
     {
         var dto = new CreateForecastProviderDto(data.Name, data.Url, data.TemperaturePath, data.Template, data.KeyParamName);

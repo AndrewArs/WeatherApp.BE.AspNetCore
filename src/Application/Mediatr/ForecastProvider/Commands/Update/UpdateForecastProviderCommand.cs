@@ -2,7 +2,7 @@
 
 namespace Application.Mediatr.ForecastProvider.Commands.Update;
 
-public class UpdateForecastProviderCommand : IRequestResult<ForecastProviderResponse>, IValidatableRequest
+public class UpdateForecastProviderCommand : IRequestResult<ForecastProviderResponse>
 {
     public required Guid Id { get; set; }
     public string? Name { get; set; }

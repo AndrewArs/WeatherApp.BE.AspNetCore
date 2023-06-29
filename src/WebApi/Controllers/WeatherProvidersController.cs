@@ -45,6 +45,17 @@ public class WeatherProvidersController : ApiControllerBase
             HandleError);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="dto">
+    /// name                    : provider unique name 
+    /// url                     : url which would be executed on each forecast request
+    /// temperature_path        : json path to temperature value. example: data.[0].temperature_c - { "data": [ {"temperature_c": 20.0} ] }
+    /// forecast_template_path  : template to be built on forecast request. should consist of text with json path placeholders {{json_path_placeholder}}. example: "Expected temperature for today is {{data.[0].temperature_c}} C"
+    /// key_query_param_name    : param from query string to be masked with mask {secret}. example: http://api.weather.com?key=my_key -> http://api.weather.com?key={secret}
+    /// </param>
+    /// <returns></returns>
     [HttpPost]
     [ProducesErrorResponseType(typeof(ErrorDto))]
     [ProducesResponseType(StatusCodes.Status201Created)]

@@ -7,7 +7,7 @@ public interface IRequestResultHandler<in TRequest, TResult> : IRequestHandler<T
 {
 }
 
-public interface IRequestResultHandler<in TRequest> : IRequestHandler<TRequest, Result<EmptyResult>>
+public interface IRequestResultHandler<in TRequest> : IRequestHandler<TRequest, Result<Empty>>
     where TRequest : IRequestResult
 {
 }

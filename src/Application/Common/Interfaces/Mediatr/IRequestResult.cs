@@ -6,6 +6,6 @@ public interface IRequestResult<TResult> : IRequest<Result<TResult>>
 {
 }
 
-public interface IRequestResult : IRequest<Result<EmptyResult>>
+public interface IRequestResult : IRequest<Result<Empty>>
 {
 }
