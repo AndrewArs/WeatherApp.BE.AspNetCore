@@ -11,8 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution 
 		Solution items\docker-compose.yml = Solution items\docker-compose.yml
 		Dockerfile = Dockerfile
 		Solution items\global.json = Solution items\global.json
-		Solution items\migrate-database.ps1 = Solution items\migrate-database.ps1
-		Solution items\start-docker-compose.ps1 = Solution items\start-docker-compose.ps1
+		Solution items\migrate-database.bat = Solution items\migrate-database.bat
+		Solution items\start-docker-compose.bat = Solution items\start-docker-compose.bat
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{749BA59F-80B4-4F88-ABC4-449E53D321D4}"

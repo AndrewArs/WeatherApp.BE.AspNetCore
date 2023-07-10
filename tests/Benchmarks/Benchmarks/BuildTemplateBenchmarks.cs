@@ -19,7 +19,7 @@ public class BuildTemplateBenchmarks
     {
             new object[]
             {
-                "Weather from the source Weatherapi for location {{location.country}} {{location.name}}. Temperature is {{current.temp_c}} C (feels like {{current.feelslike_c}} C). {{current.condition.text}}. Wind speed {{current.wind_kph}} kilometers per hour.",
+                $"{Guid.NewGuid()}. Weather from the source Weatherapi for location {{location.country}} {{location.name}}. Temperature is {{current.temp_c}} C (feels like {{current.feelslike_c}} C). {{current.condition.text}}. Wind speed {{current.wind_kph}} kilometers per hour.",
                 @"{
                     ""location"": {
                     ""name"": ""Lisbon"",
@@ -64,7 +64,7 @@ public class BuildTemplateBenchmarks
             },
             new object[]
             {
-                "Weather from the source Visualcrossing for location {{resolvedAddress}}. Temperature is {{days.[0].temp}} C (feels like {{days.[0].feelslike}} C). {{days.[0].description}} Wind speed {{days.[0].windspeed}}.",
+                $"{Guid.NewGuid()}. Weather from the source Visualcrossing for location {{resolvedAddress}}. Temperature is {{days.[0].temp}} C (feels like {{days.[0].feelslike}} C). {{days.[0].description}} Wind speed {{days.[0].windspeed}}.",
                 @"{
                     ""queryCost"": 1,
                     ""latitude"": 38.7264,
@@ -707,7 +707,7 @@ public class BuildTemplateBenchmarks
             },
             new object[]
             {
-                "Weather from the source OpenWeatherMap for location {{sys.country}} {{name}}. Temperature is {{main.temp}} F (feels like {{main.feels_like}} F). {{weather.[0].description}}. Wind speed {{wind.speed}}.",
+                $"{Guid.NewGuid()}. Weather from the source OpenWeatherMap for location {{sys.country}} {{name}}. Temperature is {{main.temp}} F (feels like {{main.feels_like}} F). {{weather.[0].description}}. Wind speed {{wind.speed}}.",
                 @"{
                     ""coord"": {
                     ""lon"": -9.1333,
@@ -754,7 +754,7 @@ public class BuildTemplateBenchmarks
             },
             new object[]
             {
-                "Weather from the source Tomorrow.io for location {{location.name}}. Temperature is {{data.values.temperature}} C (feels like {{data.values.temperatureApparent}} C). Wind speed {{data.values.windSpeed}} kilometers per hour.",
+                $"{Guid.NewGuid()}. Weather from the source Tomorrow.io for location {{location.name}}. Temperature is {{data.values.temperature}} C (feels like {{data.values.temperatureApparent}} C). Wind speed {{data.values.windSpeed}} kilometers per hour.",
                 @"{
                     ""data"": {
                     ""time"": ""2023-06-22T15:02:00Z"",
@@ -791,7 +791,7 @@ public class BuildTemplateBenchmarks
             },
             new object[]
             {
-                "Weather from the source Weatherbit.io for location {{data.[0].country_code}} {{data.[0].city_name}}. Temperature is {{data.[0].temp}} C (feels like {{data.[0].app_temp}} C). {{data.[0].weather.description}}. Wind speed {{data.[0].wind_spd}} kilometers per hour.",
+                $"{Guid.NewGuid()}. Weather from the source Weatherbit.io for location {{data.[0].country_code}} {{data.[0].city_name}}. Temperature is {{data.[0].temp}} C (feels like {{data.[0].app_temp}} C). {{data.[0].weather.description}}. Wind speed {{data.[0].wind_spd}} kilometers per hour.",
                 @"{
                     ""count"": 1,
                     ""data"": [
@@ -846,7 +846,7 @@ public class BuildTemplateBenchmarks
             },
             new object[]
             {
-                "Weather from the source WeatherStack for location {{location.country}} {{location.name}}. Temperature is {{current.temperature}} C (feels like {{current.feelslike}} C). {{current.weather_descriptions.[0]}}. Wind speed {{current.wind_speed}} kilometers per hour.",
+                $"{Guid.NewGuid()}.Weather from the source WeatherStack for location {{location.country}} {{location.name}}. Temperature is {{current.temperature}} C (feels like {{current.feelslike}} C). {{current.weather_descriptions.[0]}}. Wind speed {{current.wind_speed}} kilometers per hour.",
                 @"{
                     ""request"": {
                     ""type"": ""City"",
