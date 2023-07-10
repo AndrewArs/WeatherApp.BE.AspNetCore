@@ -36,12 +36,12 @@ public class WeatherForecastsController : ApiControllerBase
             HandleError);
     }
 
-    [HttpGet("~/api/weather-providers/{provider-id-name}/forecasts")]
+    [HttpGet("~/api/weather-providers/{id-name}/forecasts")]
     [ProducesErrorResponseType(typeof(ErrorDto))]
     [ProducesResponseType(typeof(WeatherForecastDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
-    public async Task<IActionResult> GetByProviderId([FromRoute(Name = "provider-id-name")] string providerIdOrName)
+    public async Task<IActionResult> GetByProviderId([FromRoute(Name = "id-name")] string providerIdOrName)
     {
         var request = new GetWeatherForecastQuery();
         if (Guid.TryParse(providerIdOrName, out var id))

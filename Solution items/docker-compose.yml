@@ -17,6 +17,7 @@ services:
     environment:
         ConnectionStrings__Postgres: "User ID=postgres;Password=mysecretpassword;Host=weatherapp-postgres;Port=5432;Database=weather-app;"
         Serilog__MinimumLevel__Default: "Information"
+        Cors__AllowedOrigins: "http://localhost:5173"
         ASPNETCORE_ENVIRONMENT: "Development"
         ASPNETCORE_URLS: "http://+:80"
 

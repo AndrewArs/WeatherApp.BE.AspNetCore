@@ -33,6 +33,16 @@ try
             }
         });
     });
+
+    builder.Services.AddCors(options =>
+    {
+        var origins = builder.Configuration.GetValue<string>("Cors:AllowedOrigins")?.Split(";") ?? new[] { "*" };
+        options.AddDefaultPolicy(policyBuilder => policyBuilder
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .WithOrigins(origins));
+    });
+
     builder.Services.AddControllers();
 
     builder.Host.UseSerilog((context, services, configuration) => configuration
@@ -58,6 +68,8 @@ try
     }
 
     app.UseHttpsRedirection();
+
+    app.UseCors();
 
     app.MapControllers();
 
