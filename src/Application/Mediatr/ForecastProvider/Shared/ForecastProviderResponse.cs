@@ -5,6 +5,7 @@ public record ForecastProviderResponse(
     DateTimeOffset CreatedAt,
     DateTimeOffset UpdatedAt,
     string Name,
+    string Slug,
     string Url,
     string TemperaturePath,
     string ForecastTemplatePath,

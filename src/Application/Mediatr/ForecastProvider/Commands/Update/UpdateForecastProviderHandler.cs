@@ -6,10 +6,12 @@ namespace Application.Mediatr.ForecastProvider.Commands.Update;
 public class UpdateForecastProviderHandler : IRequestResultHandler<UpdateForecastProviderCommand, ForecastProviderResponse>
 {
     private readonly IDatabaseContext _databaseContext;
+    private readonly ISlugService _slugService;
 
-    public UpdateForecastProviderHandler(IDatabaseContext databaseContext)
+    public UpdateForecastProviderHandler(IDatabaseContext databaseContext, ISlugService slugService)
     {
         _databaseContext = databaseContext;
+        _slugService = slugService;
     }
 
     public async Task<Result<ForecastProviderResponse>> Handle(UpdateForecastProviderCommand request, CancellationToken cancellationToken)
@@ -37,6 +39,7 @@ public class UpdateForecastProviderHandler : IRequestResultHandler<UpdateForecas
         if (request.Name is not null)
         {
             entity.Name = request.Name;
+            entity.Slug = _slugService.Slugify(request.Name)!;
         }
 
         if (request.TemperaturePath is not null)
@@ -51,6 +54,7 @@ public class UpdateForecastProviderHandler : IRequestResultHandler<UpdateForecas
             entity.CreatedAt,
             entity.UpdatedAt,
             entity.Name,
+            entity.Slug,
             entity.Url,
             entity.TemperaturePath,
             entity.ForecastTemplatePath,

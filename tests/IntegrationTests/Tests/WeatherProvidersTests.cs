@@ -31,6 +31,7 @@ public class WeatherProvidersTests : BaseIntegrationTest
         responseDto!.Url.Should().BeEquivalentTo(data.ExpectedUrl);
         responseDto.TemperaturePath.Should().BeEquivalentTo(data.TemperaturePath);
         responseDto.Name.Should().BeEquivalentTo(data.Name);
+        responseDto.Slug.Should().BeEquivalentTo(data.Slug);
         responseDto.ForecastTemplatePath.Should().BeEquivalentTo(data.Template);
         responseDto.KeyQueryParamName.Should().BeEquivalentTo(data.KeyParamName);
         responseDto.CreatedAt.Should().BeCloseTo(DateTimeOffset.UtcNow, TimeSpan.FromSeconds(1));
@@ -64,7 +65,7 @@ public class WeatherProvidersTests : BaseIntegrationTest
 
         var responseByIdDto = await ApiClient.GetFromJsonAsync<ForecastProviderDto>(response.Headers.Location);
 
-        var responseByNameDto = await ApiClient.GetFromJsonAsync<ForecastProviderDto>($"api/weather-providers/{responseByIdDto!.Name}");
+        var responseByNameDto = await ApiClient.GetFromJsonAsync<ForecastProviderDto>($"api/weather-providers/{responseByIdDto!.Slug}");
 
         responseByNameDto.Should().BeEquivalentTo(responseByIdDto);
     }
@@ -118,6 +119,7 @@ public class WeatherProvidersTests : BaseIntegrationTest
         updatedByIdDto.KeyQueryParamName.Should().BeEquivalentTo(updateDto.KeyQueryParamName);
         updatedByIdDto.Id.Should().Be(responseDto!.Id);
         updatedByIdDto.Name.Should().BeEquivalentTo(updateDto.Name);
+        updatedByIdDto.Slug.Should().BeEquivalentTo(data.Slug + "v2");
         updatedByIdDto.CreatedAt.Should().BeExactly(responseDto.CreatedAt);
         updatedByIdDto.UpdatedAt.Should().BeCloseTo(DateTimeOffset.UtcNow, TimeSpan.FromSeconds(1));
     }

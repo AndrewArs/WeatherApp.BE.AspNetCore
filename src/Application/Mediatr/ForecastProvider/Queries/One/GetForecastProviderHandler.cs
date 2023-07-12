@@ -23,9 +23,9 @@ public class GetForecastProviderHandler : IRequestResultHandler<GetForecastProvi
         {
             query = query.Where(x => x.Id == request.Id);
         }
-        if (!string.IsNullOrEmpty(request.Name))
+        if (!string.IsNullOrEmpty(request.Slug))
         {
-            query = query.Where(x => request.Name.ToLower().Equals(x.Name.ToLower()));
+            query = query.Where(x => request.Slug.ToLower().Equals(x.Slug.ToLower()));
         }
 
         var provider = await query.FirstOrDefaultAsync(cancellationToken);
@@ -42,6 +42,7 @@ public class GetForecastProviderHandler : IRequestResultHandler<GetForecastProvi
             provider.CreatedAt,
             provider.UpdatedAt,
             provider.Name,
+            provider.Slug,
             provider.Url,
             provider.TemperaturePath,
             provider.ForecastTemplatePath,

@@ -33,6 +33,7 @@ public class GetForecastProviderAllHandler : IRequestResultHandler<GetForecastPr
             x.CreatedAt,
             x.UpdatedAt,
             x.Name,
+            x.Slug,
             x.Url,
             x.TemperaturePath,
             x.ForecastTemplatePath,

@@ -14,14 +14,14 @@ public class WeatherForecastsTests : BaseIntegrationTest
 
     [Theory]
     [ClassData(typeof(HttpClientsData))]
-    public async Task GetForecasts_ByIdOrName_Success(HttpClientsData.Data data)
+    public async Task GetForecasts_ByIdOrSlug_Success(HttpClientsData.Data data)
     {
         var dto = new CreateForecastProviderDto(data.Name, data.Url, data.TemperaturePath, data.Template, data.KeyParamName);
         var response = await ApiClient.PostAsJsonAsync("api/weather-providers", dto);
         var responseDto = await ApiClient.GetFromJsonAsync<ForecastProviderDto>(response.Headers.Location);
 
         var dtoById = await ApiClient.GetFromJsonAsync<WeatherForecastDto>($"/api/weather-providers/{responseDto!.Id}/forecasts");
-        var dtoByName = await ApiClient.GetFromJsonAsync<WeatherForecastDto>($"/api/weather-providers/{responseDto.Name}/forecasts");
+        var dtoByName = await ApiClient.GetFromJsonAsync<WeatherForecastDto>($"/api/weather-providers/{responseDto.Slug}/forecasts");
 
         dtoById.Should().NotBeNull()
             .And.BeEquivalentTo(dtoByName, options => options.Excluding(x => x!.UpdatedAt));

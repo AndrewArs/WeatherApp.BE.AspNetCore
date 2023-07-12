@@ -9,9 +9,9 @@ public class GetForecastProviderQueryValidator : AbstractValidator<GetForecastPr
         RuleFor(x => x)
             .Custom((query, context) =>
             {
-                if (query.Id is null && string.IsNullOrEmpty(query.Name))
+                if (query.Id is null && string.IsNullOrEmpty(query.Slug))
                 {
-                    context.AddFailure($"At least one identifier should be specified {nameof(query.Id)} or {nameof(query.Name)}");
+                    context.AddFailure($"At least one identifier should be specified {nameof(query.Id)} or {nameof(query.Slug)}");
                 }
             });
     }

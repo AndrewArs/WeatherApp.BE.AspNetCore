@@ -6,10 +6,12 @@ namespace Application.Mediatr.ForecastProvider.Commands.Create;
 public class AddForecastProviderHandler : IRequestResultHandler<AddForecastProviderCommand, EntityIdentifier>
 {
     private readonly IDatabaseContext _databaseContext;
+    private readonly ISlugService _slugService;
 
-    public AddForecastProviderHandler(IDatabaseContext databaseContext)
+    public AddForecastProviderHandler(IDatabaseContext databaseContext, ISlugService slugService)
     {
         _databaseContext = databaseContext;
+        _slugService = slugService;
     }
 
     public async Task<Result<EntityIdentifier>> Handle(AddForecastProviderCommand request, CancellationToken cancellationToken)
@@ -24,6 +26,7 @@ public class AddForecastProviderHandler : IRequestResultHandler<AddForecastProvi
             Url = request.Url,
             ForecastTemplatePath = request.ForecastTemplatePath,
             Name = request.Name,
+            Slug = _slugService.Slugify(request.Name)!,
             TemperaturePath = request.TemperaturePath,
             KeyQueryParamName = request.KeyQueryParamName
         };

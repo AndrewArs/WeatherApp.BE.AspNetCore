@@ -8,10 +8,10 @@ public class UrlServiceTests
     {
         yield return new object[]
         {
-            "http://api.weatherapi.com/v1/current.json?key=some_secret&q=Lisbon&days=1",
+            "http://api.weatherapi.com/v1/current.json?key=some_secret&q=Lisbon&days=1&another_key=not_masked",
             "{secret}",
             "key",
-            "http://api.weatherapi.com/v1/current.json?key={secret}&q=Lisbon&days=1"
+            "http://api.weatherapi.com/v1/current.json?key={secret}&q=Lisbon&days=1&another_key=not_masked"
         };
         yield return new object[]
         {

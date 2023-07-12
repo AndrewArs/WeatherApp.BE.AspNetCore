@@ -5,6 +5,7 @@ public record ForecastProviderDto(
     DateTimeOffset CreatedAt,
     DateTimeOffset UpdatedAt,
     string Name,
+    string Slug,
     string Url,
     string TemperaturePath,
     string ForecastTemplatePath,

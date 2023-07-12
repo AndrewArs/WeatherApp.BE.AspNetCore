@@ -33,7 +33,7 @@ public static class ServiceCollectionExtensions
                 .When(data.Url)
                 .Respond(MediaTypeNames.Application.Json, data.Json);
 
-            services.AddHttpClient(data.Name)
+            services.AddHttpClient(data.Slug)
                 .ConfigureHttpMessageHandlerBuilder(handlerBuilder => handlerBuilder.PrimaryHandler = mockHandler);
         }
     }

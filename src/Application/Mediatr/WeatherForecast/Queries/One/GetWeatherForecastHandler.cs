@@ -33,16 +33,16 @@ public class GetWeatherForecastHandler : IRequestResultHandler<GetWeatherForecas
             query = query.Where(x => x.Id == request.ProviderId);
         }
 
-        if (!string.IsNullOrEmpty(request.ProviderName))
+        if (!string.IsNullOrEmpty(request.ProviderSlug))
         {
-            query = query.Where(x => request.ProviderName.ToLower().Equals(x.Name.ToLower()));
+            query = query.Where(x => request.ProviderSlug.ToLower().Equals(x.Slug.ToLower()));
         }
 
         var provider = await query.FirstOrDefaultAsync(cancellationToken);
 
         if (provider == null) return Error.NotFound<ForecastProviderSettings>();
 
-        var httpClient = _clientFactory.CreateClient(provider.Name);
+        var httpClient = _clientFactory.CreateClient(provider.Slug);
 
         var providerResponse = await httpClient.GetAsync(provider.Url, cancellationToken);
 

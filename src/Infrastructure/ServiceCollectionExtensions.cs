@@ -19,6 +19,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IJsonParserService, JsonParserService>();
         services.AddSingleton<ITemplateService, TemplateService>();
         services.AddSingleton<IUrlService, UrlService>();
+        services.AddSingleton<ISlugService, SlugService>();
 
         return services;
     }

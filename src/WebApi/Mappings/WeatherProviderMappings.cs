@@ -10,7 +10,15 @@ public static class WeatherProviderMappings
         => new(domain.Data.Select(x => x.ToDto()).ToList());
 
     public static ForecastProviderDto ToDto(this ForecastProviderResponse domain)
-        => new(domain.Id, domain.CreatedAt, domain.UpdatedAt, domain.Name, domain.Url, domain.TemperaturePath, domain.ForecastTemplatePath, domain.KeyQueryParamName);
+        => new(domain.Id,
+                domain.CreatedAt,
+                domain.UpdatedAt,
+                domain.Name,
+                domain.Slug,
+                domain.Url,
+                domain.TemperaturePath,
+                domain.ForecastTemplatePath,
+                domain.KeyQueryParamName);
 
     public static AddForecastProviderCommand ToDomain(this CreateForecastProviderDto dto)
         => new()
