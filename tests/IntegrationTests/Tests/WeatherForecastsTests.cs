@@ -21,10 +21,10 @@ public class WeatherForecastsTests : BaseIntegrationTest
         var responseDto = await ApiClient.GetFromJsonAsync<ForecastProviderDto>(response.Headers.Location);
 
         var dtoById = await ApiClient.GetFromJsonAsync<WeatherForecastDto>($"/api/weather-providers/{responseDto!.Id}/forecasts");
-        var dtoByName = await ApiClient.GetFromJsonAsync<WeatherForecastDto>($"/api/weather-providers/{responseDto.Slug}/forecasts");
+        var dtoBySlug = await ApiClient.GetFromJsonAsync<WeatherForecastDto>($"/api/weather-providers/{responseDto.Slug}/forecasts");
 
         dtoById.Should().NotBeNull()
-            .And.BeEquivalentTo(dtoByName, options => options.Excluding(x => x!.UpdatedAt));
+            .And.BeEquivalentTo(dtoBySlug, options => options.Excluding(x => x!.UpdatedAt));
 
         dtoById!.Provider.Should().BeEquivalentTo(data.Name);
         dtoById.Temperature.Should().Be(data.ExpectedTemperature);

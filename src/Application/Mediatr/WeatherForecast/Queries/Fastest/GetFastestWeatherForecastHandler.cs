@@ -37,7 +37,7 @@ public class GetFastestWeatherForecastHandler : IRequestResultHandler<GetFastest
         using var ct = CancellationTokenSource.CreateLinkedTokenSource(cts.Token, cancellationToken);
         var tasks = providers
             .Select(x => _clientFactory
-                .CreateClient(x.Name)
+                .CreateClient(x.Slug)
                 .GetAsync(x.Url, ct.Token)
                 .ContinueWith(response => new { httpResponse = response.Result, provider = x}, TaskContinuationOptions.OnlyOnRanToCompletion))
             .ToList();

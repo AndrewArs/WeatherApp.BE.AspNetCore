@@ -14,11 +14,11 @@ public class AddForecastProviderSettings : Migration
     {
         Create.Table(TableName)
             .WithBaseIdentityEntityColumns()
-            .WithColumn(nameof(ForecastProviderSettings.Name).Underscore()).AsFixedLengthString(150).Unique().NotNullable()
+            .WithColumn(nameof(ForecastProviderSettings.Name).Underscore()).AsString(150).Unique().NotNullable()
             .WithColumn(nameof(ForecastProviderSettings.Url).Underscore()).AsString().NotNullable()
-            .WithColumn(nameof(ForecastProviderSettings.TemperaturePath).Underscore()).AsFixedLengthString(100).NotNullable()
+            .WithColumn(nameof(ForecastProviderSettings.TemperaturePath).Underscore()).AsString(100).NotNullable()
             .WithColumn(nameof(ForecastProviderSettings.ForecastTemplatePath).Underscore()).AsString().NotNullable()
-            .WithColumn(nameof(ForecastProviderSettings.KeyQueryParamName).Underscore()).AsFixedLengthString(100).NotNullable()
+            .WithColumn(nameof(ForecastProviderSettings.KeyQueryParamName).Underscore()).AsString(100).NotNullable()
             .WithBaseAuditableEntityColumns();
     }
 

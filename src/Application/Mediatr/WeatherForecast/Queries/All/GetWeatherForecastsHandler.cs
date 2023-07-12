@@ -35,7 +35,7 @@ public class GetWeatherForecastsHandler : IRequestResultHandler<GetWeatherForeca
 
         var tasks = providers
             .Select(x => _clientFactory
-                .CreateClient(x.Name)
+                .CreateClient(x.Slug)
                 .GetAsync(x.Url, cancellationToken)
                 .ContinueWith(response => (httpResponse: response.Result, provider: x), TaskContinuationOptions.OnlyOnRanToCompletion))
             .ToList();
