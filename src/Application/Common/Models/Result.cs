@@ -2,7 +2,7 @@
 
 public readonly struct Result<T> : IResult
 {
-    public T Value { get; }
+    public T Value { get; } = default!;
 
     public Error Error { get; }
 
@@ -17,7 +17,7 @@ public readonly struct Result<T> : IResult
 
     public Result(Error error)
     {
-        Value = default;
+        Value = default!;
         Error = error;
         IsSuccess = false;
     }

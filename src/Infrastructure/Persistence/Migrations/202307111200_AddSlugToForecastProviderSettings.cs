@@ -12,7 +12,7 @@ public class AddSlugToForecastProviderSettings : Migration
     {
         Create.Column(ColumnName)
             .OnTable(TableName)
-            .AsFixedLengthString(150)
+            .AsString(150)
             .Nullable();
 
         Execute.Sql(@$"
@@ -23,7 +23,7 @@ public class AddSlugToForecastProviderSettings : Migration
         Alter
             .Column(ColumnName)
             .OnTable(TableName)
-            .AsFixedLengthString(150)
+            .AsString(150)
             .NotNullable()
             .Unique();
     }

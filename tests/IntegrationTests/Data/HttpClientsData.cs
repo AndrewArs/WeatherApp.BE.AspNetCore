@@ -57,8 +57,8 @@ public class HttpClientsData : IEnumerable<object[]>
             Temperature is {{current.temp_c}} C (feels like {{current.feelslike_c}} C).
             {{current.condition.text}}. Wind speed {{current.wind_kph}} kilometers per hour.",
             ExpectedTemplate = @"Weather from the source Weatherapi for location Portugal Lisbon.
-            Temperature is 27.0 C (feels like 30.5 C).
-            Partly cloudy. Wind speed 22.0 kilometers per hour.",
+            Temperature is 27 C (feels like 30.5 C).
+            Partly cloudy. Wind speed 22 kilometers per hour.",
             TemperaturePath = "current.temp_c",
             ExpectedTemperature = 27f
         },
@@ -95,7 +95,7 @@ public class HttpClientsData : IEnumerable<object[]>
             Temperature: {{data.[0].temperature}} C. Conditions: {{data.[1].weather_conditions.conditions.[0]}},
             {{data.[1].weather_conditions.conditions.[1]}}, {{data.[1].weather_conditions.rain_conditions}}",
             ExpectedTemplate = @"Weather forecast for location Portugal Lisboa.
-            Temperature: 20.0 C. Conditions: hot,
+            Temperature: 20 C. Conditions: hot,
             good for swimming, No rain expected",
             TemperaturePath = "data.[0].temperature",
             ExpectedTemperature = 20f
