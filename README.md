@@ -1,6 +1,6 @@
 # WeatherApp.BE.AspNetCore
 ## About app
-This is a weather forecast app where users can add forecast providers and browse forecasts. The provider model consists of the following fields:
+This weather forecast app allows users to add forecast providers and browse forecasts. The provider model consists of the following fields:
 - **name**: The unique name of the provider.
 - **url**: The URL to be executed for each forecast request.
 - **temperature_path**: The JSON path to the temperature value. For example, 'data.[0].temperature_c' in the JSON structure '{ "data": [ {"temperature_c": 20.0} ] }'.
@@ -49,9 +49,9 @@ Application written using *Clean Architecture*, *Railway Oriented Programming*, 
 ----------
 
 ## To start the project
-1. Configure all dependecies
+1. Configure all dependencies
 2. Go to [Solution items folder](/Solution%20items)
-3. Run docker compose using script [start-docker-compose.bat](/Solution%20items/start-docker-compose.ps1) or execute this command in console `docker compose up -d --build`
+3. Run docker-compose using a script [start-docker-compose.bat](/Solution%20items/start-docker-compose.ps1) or execute this command in console `docker compose up -d --build`
 4. Run migration PowerShell script [migrate-database.bat](/Solution%20items/migrate-database.ps1) or execute two commands in console
     ```console
     dotnet build "..\"
@@ -63,16 +63,17 @@ Application written using *Clean Architecture*, *Railway Oriented Programming*, 
 
 ## Project structure
 - **src** - source code of the application
-    - **Application** - core project which contains all bussiness logic
+    - **Application** - a core project which contains all business logic
     - **Domain** - database entities
     - **Infrastructure** - utility services, connectors to storage
     - **WebApi** - REST API entry point of application
 
 - **tests** - project tests and benchmarks
-    - **Benchmarks** - benchmarks of different versions of algorithms used in application
+    - **Benchmarks** - benchmarks of different versions of algorithms used in the application
     - **UnitTests** - tests for utility services
     - **IntegrationTests** - controller tests
     
 - **Solution items** - scripts/docker files/settings
-    - **migrate-database.ps1** - script used to run migrations over Postgres database (contains hardcoded connection string which should be replaces with yours)
+    - **migrate-database.bat** - script used to run migrations over Postgres database (contains hardcoded connection string which should be replaced with yours)
+    - **start-docker-compose.bat** - script used to deploy/redeploy docker-compose locally
     
