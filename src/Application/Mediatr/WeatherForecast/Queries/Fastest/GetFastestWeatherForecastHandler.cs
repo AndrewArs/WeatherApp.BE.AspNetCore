@@ -39,6 +39,7 @@ public class GetFastestWeatherForecastHandler : IRequestResultHandler<GetFastest
             .Select(x => _clientFactory
                 .CreateClient(x.Slug)
                 .GetAsync(x.Url, ct.Token)
+                .ContinueWith(response => response.Result.EnsureSuccessStatusCode(), TaskContinuationOptions.OnlyOnRanToCompletion)
                 .ContinueWith(response => new { httpResponse = response.Result, provider = x}, TaskContinuationOptions.OnlyOnRanToCompletion))
             .ToList();
         var task = tasks.First();
