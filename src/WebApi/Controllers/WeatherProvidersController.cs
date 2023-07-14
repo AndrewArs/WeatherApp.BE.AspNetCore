@@ -27,9 +27,14 @@ public class WeatherProvidersController : ApiControllerBase
     [ProducesResponseType(typeof(ForecastProviderDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
-    public async Task<IActionResult> GetOne([FromRoute(Name = "id-slug")] string idOrSlug)
+    public async Task<IActionResult> GetOne(
+        [FromRoute(Name = "id-slug")] string idOrSlug,
+        [FromQuery(Name = "hideUrlKey")] bool hideUrlKey = true)
     {
-        var request = new GetForecastProviderQuery();
+        var request = new GetForecastProviderQuery
+        {
+            HideUrlKey = hideUrlKey
+        };
         if (Guid.TryParse(idOrSlug, out var guid))
         {
             request.Id = guid;

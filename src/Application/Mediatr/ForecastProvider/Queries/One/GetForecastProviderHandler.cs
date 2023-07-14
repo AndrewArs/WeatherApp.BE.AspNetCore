@@ -32,7 +32,7 @@ public class GetForecastProviderHandler : IRequestResultHandler<GetForecastProvi
 
         if (provider == null) return Error.NotFound<ForecastProviderSettings>();
 
-        if (!string.IsNullOrEmpty(provider.KeyQueryParamName))
+        if (request.HideUrlKey && !string.IsNullOrEmpty(provider.KeyQueryParamName))
         {
             provider.Url = _urlService.MaskUrlQueryParams(provider.Url, provider.KeyQueryParamName);
         }
