@@ -67,7 +67,10 @@ public class WeatherProvidersTests : BaseIntegrationTest
 
         var responseByNameDto = await ApiClient.GetFromJsonAsync<ForecastProviderDto>($"api/weather-providers/{responseByIdDto!.Slug}");
 
+        var unhiddenKeyParamDto = await ApiClient.GetFromJsonAsync<ForecastProviderDto>($"api/weather-providers/{responseByIdDto.Slug}?hideUrlKey=false");
+
         responseByNameDto.Should().BeEquivalentTo(responseByIdDto);
+        unhiddenKeyParamDto!.Url.Should().BeEquivalentTo(data.Url);
     }
 
     [Theory]

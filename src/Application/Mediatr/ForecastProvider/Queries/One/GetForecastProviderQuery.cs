@@ -5,6 +5,6 @@ namespace Application.Mediatr.ForecastProvider.Queries.One;
 public class GetForecastProviderQuery : IRequestResult<ForecastProviderResponse>
 {
     public Guid? Id { get; set; }
-
     public string? Slug { get; set; }
+    public bool HideUrlKey { get; init; } = true;
 }
