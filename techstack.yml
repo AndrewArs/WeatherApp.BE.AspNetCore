@@ -1,0 +1,456 @@
+repo_name: AndrewArs/WeatherApp.BE.AspNetCore
+report_id: 24238970f7bc6195c8a8a21a1464d68c
+version: 0.1
+repo_type: Public
+timestamp: '2024-01-31T08:57:37+00:00'
+requested_by: AndrewArs
+provider: github
+branch: develop
+detected_tools_count: 33
+tools:
+- name: C#
+  description: Simple, general-purpose, object-oriented programming language for the
+    .NET platform
+  website_url: http://csharp.net
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1015/1200px-C_Sharp_wordmark.svg.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore
+  detection_source: Repo Metadata
+- name: Swift
+  description: 'An innovative new programming language for Cocoa and Cocoa Touch. '
+  website_url: https://developer.apple.com/swift/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1009/tuHsaI2U.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/Solution
+    items/docker-compose.yml
+  detection_source: Solution items/docker-compose.yml
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-29 16:38:22.000000000 Z
+- name: ".NET"
+  description: A free, cross-platform, open source developer platform for building
+    many different types of applications
+  website_url: http://www.microsoft.com/net/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Frameworks (Full Stack)
+  image_url: https://img.stackshare.io/service/1014/IoPy1dce_400x400.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/tests/IntegrationTests/IntegrationTests.csproj
+  detection_source: tests/IntegrationTests/IntegrationTests.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-27 15:38:09.000000000 Z
+- name: ".NET Core"
+  description: An Open Source, General-Purpose Development Platform Maintained by
+    Microsoft and the .NET Community
+  website_url: https://docs.microsoft.com/en-us/dotnet/core/
+  version: '7.0'
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Frameworks (Full Stack)
+  image_url: https://img.stackshare.io/service/6403/default_91fc1f0ee315262794273aa1387eaf8fed8436e6.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/Application/Application.csproj
+  detection_source: Solution items/docker-compose.yml
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-07-10 18:13:56.000000000 Z
+- name: ASP.NET Core
+  description: A cross-platform .NET framework for building modern cloud-based web
+    applications on Windows, Mac, or Linux
+  website_url: docs.microsoft.com/en-us/aspnet/core/
+  version: '7.0'
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Frameworks (Full Stack)
+  image_url: https://img.stackshare.io/service/11331/asp.net-core.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/Application/Application.csproj
+  detection_source: src/Application/Application.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-26 10:44:40.000000000 Z
+- name: MediatR
+  description: In-process messaging with no dependencies
+  website_url: https://github.com/jbogard/MediatR
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Message Queue
+  image_url: https://img.stackshare.io/service/20925/default_6fd5a642fb778d0aeef31d8d6cf9b58b8f20da27.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/Application/Application.csproj
+  detection_source: src/Application/Application.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-26 10:44:40.000000000 Z
+- name: PostgreSQL
+  description: A powerful, open source object-relational database system
+  website_url: http://www.postgresql.org/
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Databases
+  image_url: https://img.stackshare.io/service/1028/ASOhU5xJ.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/Solution
+    items/docker-compose.yml
+  detection_source: Solution items/docker-compose.yml
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-29 16:38:22.000000000 Z
+- name: Docker
+  description: Enterprise Container Platform for High-Velocity Innovation.
+  website_url: https://www.docker.com/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Virtual Machine Platforms & Containers
+  image_url: https://img.stackshare.io/service/586/n4u37v9t_400x400.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore
+  detection_source: Repo Metadata
+- name: GitHub Actions
+  description: Automate your workflow from idea to production
+  website_url: https://github.com/features/actions
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/11563/actions.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/.github/workflows/dotnet.yml
+  detection_source: ".github/workflows/dotnet.yml"
+  last_updated_by: AndrewArs
+  last_updated_on: 2023-06-26 10:46:36.000000000 Z
+- name: NuGet
+  description: The package manager for .NET
+  website_url: https://www.nuget.org/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/service/2637/6I3oEOP4_400x400.jpg
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/tests/IntegrationTests/IntegrationTests.csproj
+  detection_source: tests/IntegrationTests/IntegrationTests.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-27 15:38:09.000000000 Z
+- name: Serilog
+  description: A portable and structured logging framework to record diagnostic logs
+  website_url: http://serilog.net/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Monitoring
+  sub_category: Log Management
+  image_url: https://img.stackshare.io/service/4283/5691010.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/WebApi/WebApi.csproj
+  detection_source: src/WebApi/WebApi.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-29 16:38:22.000000000 Z
+- name: Testcontainers
+  description: A library that integrates Docker with testing libs - for databases,
+    Selenium web browsers, or anything else that can run in a Docker container
+  website_url: https://www.testcontainers.org/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Container Tools
+  image_url: https://img.stackshare.io/service/9791/IOUXc3V1_400x400.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/tests/IntegrationTests/IntegrationTests.csproj
+  detection_source: tests/IntegrationTests/IntegrationTests.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-27 15:38:09.000000000 Z
+- name: Visual Studio
+  description: State-of-the-art tools and services that you can use to create great
+    apps for devices, the cloud, and everything in between.
+  website_url: http://msdn.microsoft.com/en-us/vstudio/aa718325.aspx
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Integrated Development Environment
+  image_url: https://img.stackshare.io/service/1451/SR2hUhQN.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/WeatherApp.sln
+  detection_source: WeatherApp.sln
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-26 10:44:40.000000000 Z
+- name: xUnit
+  description: An open source, community-focused unit testing tool
+  website_url: http://xunit.github.io/
+  version: 2.5.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Testing Frameworks
+  image_url: https://img.stackshare.io/service/3077/ca5a327feb49ddfe1f4b11548907e5a1_400x400.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/tests/IntegrationTests/IntegrationTests.csproj
+  detection_source: tests/IntegrationTests/IntegrationTests.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-27 15:38:09.000000000 Z
+- name: Alpine Linux
+  description: Security-oriented, lightweight Linux distribution based on musl libc
+    and busybox
+  website_url: https://www.alpinelinux.org/
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Operating Systems
+  image_url: https://img.stackshare.io/service/6429/alpine_linux.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/Solution
+    items/docker-compose.yml
+  detection_source: Solution items/docker-compose.yml
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-29 16:38:22.000000000 Z
+- name: CocoaPods
+  description: A dependency manager for Swift and Objective-C Cocoa projects
+  website_url: https://cocoapods.org/
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: CocoaPods Packages
+  image_url: https://img.stackshare.io/service/2426/e1cbdef9d4b11484049a033886578e54_400x400.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/Solution
+    items/docker-compose.yml
+  detection_source: Solution items/docker-compose.yml
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-29 16:38:22.000000000 Z
+- name: FluentValidation
+  description: A popular .NET validation library
+  website_url: https://fluentvalidation.net/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/service/9673/default_debf406cb448b8b966a6f0bda56f1617cad2a5dc.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/Application/Application.csproj
+  detection_source: src/Application/Application.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-26 10:44:40.000000000 Z
+- name: Software & Database Migration
+  description: We offer software and database migration services, including cloud
+    and mobile porting.
+  website_url: http://worpcloud.com/
+  open_source: false
+  hosted_saas: false
+  image_url: https://img.stackshare.io/service/426/fDAGZwLE_normal.jpeg
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/Solution
+    items/docker-compose.yml
+  detection_source: Solution items/docker-compose.yml
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-29 16:38:22.000000000 Z
+- name: BenchmarkDotNet
+  description: Powerful .NET library for benchmarking
+  package_url: https://www.nuget.org/BenchmarkDotNet
+  version: 0.13.5
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/14365/default_90e7ce697521dd13e8eb643d3771c2a0e4e6d561.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/tests/Benchmarks/Benchmarks.csproj
+  detection_source: tests/Benchmarks/Benchmarks.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-26 10:44:40.000000000 Z
+- name: FluentAssertions
+  description: A very extensive set of extension methods that allow you to more naturally
+    specify the expected outcome of a TDD or BDD-style unit tests
+  package_url: https://www.nuget.org/FluentAssertions
+  version: 6.11.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/13059/default_ed36ff3c005af695725e05bb15ea5b1f03de31f3.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/tests/IntegrationTests/IntegrationTests.csproj
+  detection_source: tests/IntegrationTests/IntegrationTests.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-27 15:38:09.000000000 Z
+- name: FluentMigrator
+  description: FluentMigrator is a database migration framework for .NET written in
+    C#
+  package_url: https://www.nuget.org/FluentMigrator
+  version: 3.3.2
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/13431/default_b5cc6dac756daf8a76f449b0db2d2933859829df.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/Infrastructure/Infrastructure.csproj
+  detection_source: src/Infrastructure/Infrastructure.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-26 10:44:40.000000000 Z
+- name: FluentMigrator.Runner
+  description: FluentMigrator is a database migration framework for .NET written in
+    C#
+  package_url: https://www.nuget.org/FluentMigrator.Runner
+  version: 3.3.2
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/13529/default_311009104e9efa41dc477451d8d60c2d0cbe7895.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/tests/IntegrationTests/IntegrationTests.csproj
+  detection_source: tests/IntegrationTests/IntegrationTests.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-27 15:38:09.000000000 Z
+- name: Humanizer.Core
+  description: Humanizer core package that contains the library and the neutral language
+  package_url: https://www.nuget.org/Humanizer.Core
+  version: 2.14.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/13200/default_e23dabba1be2c69fbf5fc50bdc46cbffbe6ca2cb.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/Infrastructure/Infrastructure.csproj
+  detection_source: src/Infrastructure/Infrastructure.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-26 10:44:40.000000000 Z
+- name: Microsoft.EntityFrameworkCore
+  description: Entity Framework Core is a lightweight and extensible version of the
+    popular Entity Framework data access technology
+  package_url: https://www.nuget.org/Microsoft.EntityFrameworkCore
+  version: 7.0.8
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/12852/default_ccf90b566c21ad9eaa59733f297e535ea39fb3b4.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/Application/Application.csproj
+  detection_source: src/Application/Application.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-26 10:44:40.000000000 Z
+- name: Microsoft.EntityFrameworkCore.Relational
+  description: Shared Entity Framework Core components for relational database providers
+  package_url: https://www.nuget.org/Microsoft.EntityFrameworkCore.Relational
+  version: 7.0.8
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/12914/default_cd4457378b2b3dee674f43707df49edfbc5c04e5.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/Application/Application.csproj
+  detection_source: src/Application/Application.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-26 10:44:40.000000000 Z
+- name: Microsoft.Extensions.Http
+  description: The HttpClient factory is a pattern for configuring and retrieving
+    named HttpClients in a composable way
+  package_url: https://www.nuget.org/Microsoft.Extensions.Http
+  version: 7.0.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/12940/default_54d470a1e19c265eb229b6bd88965fb8df9f9f78.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/Application/Application.csproj
+  detection_source: src/Application/Application.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-26 10:44:40.000000000 Z
+- name: Microsoft.Extensions.Logging.Abstractions
+  description: Logging abstractions for Microsoft.Extensions.Logging
+  package_url: https://www.nuget.org/Microsoft.Extensions.Logging.Abstractions
+  version: 7.0.1
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/12853/default_3ee9e3bfd65cbae9db28ab78b712a58bcd81af27.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/Application/Application.csproj
+  detection_source: src/Application/Application.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-26 10:44:40.000000000 Z
+- name: Serilog.AspNetCore
+  description: Serilog support for ASP.NET Core logging
+  package_url: https://www.nuget.org/Serilog.AspNetCore
+  version: 7.0.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/13194/default_18a92235046d8c8db548cd22b87cf5792dc31759.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/WebApi/WebApi.csproj
+  detection_source: src/WebApi/WebApi.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-29 16:38:22.000000000 Z
+- name: Serilog.Sinks.Async
+  description: Asynchronous sink wrapper for Serilog
+  package_url: https://www.nuget.org/Serilog.Sinks.Async
+  version: 1.5.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/13775/default_38064b97bfe17b99e14fb334e84122134ad69688.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/WebApi/WebApi.csproj
+  detection_source: src/WebApi/WebApi.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-29 16:38:22.000000000 Z
+- name: Serilog.Sinks.Console
+  description: A Serilog sink that writes log events to the console/terminal
+  package_url: https://www.nuget.org/Serilog.Sinks.Console
+  version: 4.1.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/13071/default_0af6f5844ebd9062a9a4895d909753dc8447f2f3.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/WebApi/WebApi.csproj
+  detection_source: src/WebApi/WebApi.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-29 16:38:22.000000000 Z
+- name: Swashbuckle.AspNetCore
+  description: Swagger tools for documenting APIs built on ASP.NET Core
+  package_url: https://www.nuget.org/Swashbuckle.AspNetCore
+  version: 6.5.0
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/12981/default_aa8a6e377c22dbeff795489a5ab127b1d597b5ed.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/src/WebApi/WebApi.csproj
+  detection_source: src/WebApi/WebApi.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-29 16:38:22.000000000 Z
+- name: xunit.runner.visualstudio
+  description: Visual Studio 2012+ Test Explorer runner for the xUnit.net framework
+  package_url: https://www.nuget.org/xunit.runner.visualstudio
+  version: 2.5.0
+  license: Other
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/13260/default_d2db5a200c4fe2d08cbdb2174cc230708973870b.png
+  detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore/blob/develop/tests/IntegrationTests/IntegrationTests.csproj
+  detection_source: tests/IntegrationTests/IntegrationTests.csproj
+  last_updated_by: andrii.arsienov
+  last_updated_on: 2023-06-27 15:38:09.000000000 Z
