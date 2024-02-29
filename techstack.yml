@@ -2,7 +2,7 @@ repo_name: AndrewArs/WeatherApp.BE.AspNetCore
 report_id: 24238970f7bc6195c8a8a21a1464d68c
 version: 0.1
 repo_type: Public
-timestamp: '2024-01-31T08:57:37+00:00'
+timestamp: '2024-02-29T19:44:10+00:00'
 requested_by: AndrewArs
 provider: github
 branch: develop
@@ -20,7 +20,7 @@ tools:
   detection_source_url: https://github.com/AndrewArs/WeatherApp.BE.AspNetCore
   detection_source: Repo Metadata
 - name: Swift
-  description: 'An innovative new programming language for Cocoa and Cocoa Touch. '
+  description: An innovative new programming language for Cocoa and Cocoa Touch.
   website_url: https://developer.apple.com/swift/
   license: Apache-2.0
   open_source: true
